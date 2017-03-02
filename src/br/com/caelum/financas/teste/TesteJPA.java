@@ -8,8 +8,13 @@ import br.com.caelum.financas.modelo.Conta;
 
 public class TesteJPA {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
+		double inicio = System.currentTimeMillis();
+		
 		Conta conta = new Conta();
 		conta.setTitular("Maria dos Santos");
 		conta.setBanco("Caixa");
@@ -23,5 +28,8 @@ public class TesteJPA {
 		em.persist(conta);
 		em.getTransaction().commit();
 		em.close();
+		
+		double fim = System.currentTimeMillis();
+		System.out.println("Executado em: " + (fim - inicio)/1000 + "s");
 	}
 }
