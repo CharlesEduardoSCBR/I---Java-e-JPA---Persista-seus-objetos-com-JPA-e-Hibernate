@@ -32,7 +32,7 @@ public class TesteJPARelacionamento {
 
 		em = new JPAUtil().getEntityManager();
 		em.getTransaction().begin();
-		em.persist(conta);
+		//em.persist(conta);
 		em.persist(movimentacao);
 		em.getTransaction().commit();
 		em.close();
