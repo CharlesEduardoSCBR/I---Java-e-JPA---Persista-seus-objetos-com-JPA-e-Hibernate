@@ -17,6 +17,10 @@ public class TesteEstadosJPA {
 		conta = manager.find(Conta.class, 1);
 		
 		System.out.println(conta.getTitular());
+		
+		conta.setTitular("Luiz Ferreira");
+		
+		System.out.println(conta.getTitular());
 
 		manager.getTransaction().commit();
 		manager.close();
