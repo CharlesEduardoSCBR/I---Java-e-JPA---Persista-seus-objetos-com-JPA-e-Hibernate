@@ -20,8 +20,9 @@ public class TesteGerenciamentoJPA {
 
 		conta.setTitular("Alura ensino e inovação");
 
+		manager.getTransaction().begin();
+		manager.merge(conta);
+		manager.getTransaction().commit();
 		manager.close();
-
 	}
-
 }
