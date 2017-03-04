@@ -17,7 +17,7 @@ public class TesteMovimentacaoConta {
 		Query query;
 
 		manager = new JPAUtil().getEntityManager();
-		query = manager.createQuery("SELECT c FROM Conta c JOIN FETCH c.movimentacoes");
+		query = manager.createQuery("SELECT DISTINCT c FROM Conta c JOIN FETCH c.movimentacoes");
 		contas = query.getResultList();
 		
 		for (Conta conta : contas) {
