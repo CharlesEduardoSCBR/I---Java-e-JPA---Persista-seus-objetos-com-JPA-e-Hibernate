@@ -23,13 +23,14 @@ public class TesteConsultaJPQL {
 		conta = new Conta();
 		conta.setId(1);
 		
-		query = manager.createQuery("SELECT m "
-									+ " FROM Movimentacao m "
-									+ "WHERE m.conta.id = ?1"
-									+ "  AND m.tipoMovimentacao = ?2");
+		query = manager.createQuery("    SELECT m "
+									+ "    FROM Movimentacao m "
+									+ "   WHERE m.conta.id = :pConta"
+									+ "     AND m.tipoMovimentacao = :pTipo "
+									+ "ORDER BY m.valor desc");
 		
-		query.setParameter(1, conta.getId());
-		query.setParameter(2, TipoMovimentacao.ENTRADA);
+		query.setParameter("pConta", conta.getId());
+		query.setParameter("pTipo", TipoMovimentacao.SAIDA);
 		
 		movimentacoes = query.getResultList();
 		
