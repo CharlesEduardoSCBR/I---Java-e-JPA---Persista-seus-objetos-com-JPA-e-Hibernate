@@ -21,8 +21,7 @@ public class TesteMovimentacaoConta {
 		contas = query.getResultList();
 		
 		for (Conta conta : contas) {
-			System.out.println(conta.getNumero());
-			System.out.println(conta.getTitular() + "\n");
+			System.out.println("Numero de movimentaçoes ...: " + conta.getMovimentacoes().size());
 		}
 	}
 }
