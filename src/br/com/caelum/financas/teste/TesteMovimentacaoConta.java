@@ -2,18 +2,20 @@ package br.com.caelum.financas.teste;
 
 import javax.persistence.EntityManager;
 
-import br.com.caelum.financas.modelo.Movimentacao;
+import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.util.JPAUtil;
 
 public class TesteMovimentacaoConta {
 
 	public static void main(String[] args) {
 		EntityManager manager;
-		Movimentacao movimentacao;
+		Conta conta;
 
 		manager = new JPAUtil().getEntityManager();
-		movimentacao = manager.find(Movimentacao.class, 2);
+		conta = manager.find(Conta.class, 2);
 		
-		System.out.println(movimentacao.getConta().getTitular());
+		manager.close();
+		
+		System.out.println(conta.getMovimentacoes().size());
 	}
 }
